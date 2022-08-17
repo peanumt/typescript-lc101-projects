@@ -11,3 +11,21 @@ export class Rocket {
         this.totalCapacityKg = totalCapacityKg;
     }
 }
+addCargo(cargo:Cargo) {
+    if (this.canAdd(cargo)) {
+        this.cargoItems.push(cargo);
+        return true:
+    }
+    return false;
+}
+
+addAstronaut(astronaut: Astronaut) {
+    if (this.canAdd(astronaut)) {
+        this.astronauts.push(astronaut);
+        return true;
+    }
+    return false;
+}
+canAdd(item: Payload): boolean {
+    return this.currentWeightKg() + item.massKg()
+}
